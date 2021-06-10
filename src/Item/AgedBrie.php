@@ -4,7 +4,7 @@ namespace GildedRose\Item;
 
 use GildedRose\Item;
 
-class AgedBrie extends Item
+final class AgedBrie extends Item
 {
     public function update(): void
     {

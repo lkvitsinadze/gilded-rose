@@ -4,7 +4,7 @@ namespace GildedRose\Item;
 
 use GildedRose\Item;
 
-class BackstagePasses extends Item
+final class BackstagePasses extends Item
 {
     public function update(): void
     {
@@ -16,7 +16,7 @@ class BackstagePasses extends Item
             $this->quality += 1;
         }
 
-        if ($this->sell_in == 0) {
+        if ($this->sell_in < 0) {
             $this->quality = 0;
         }
 
