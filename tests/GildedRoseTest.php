@@ -126,7 +126,7 @@ class GildedRoseTest extends TestCase
 
     public function test_backstage_passes_quality_on_sell_date(): void
     {
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 1, 10)];
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame(13, $items[0]->quality);
@@ -134,7 +134,11 @@ class GildedRoseTest extends TestCase
 
     public function test_backstage_passes_quality_after_sell_date(): void
     {
-        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)];
+        $items = [new Item('Backstage passes to a TAFKAL80ETC concert', -4, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame(0, $items[0]->quality);
+    }
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame(0, $items[0]->quality);
