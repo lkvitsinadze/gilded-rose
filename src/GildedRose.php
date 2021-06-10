@@ -6,6 +6,7 @@ namespace GildedRose;
 
 use GildedRose\Item\AgedBrie;
 use GildedRose\Item\BackstagePasses;
+use GildedRose\Item\Conjured;
 use GildedRose\Item\NormalItem;
 use GildedRose\Item\Sulfuras;
 
@@ -19,6 +20,7 @@ final class GildedRose
         'Aged Brie' => AgedBrie::class,
         'Sulfuras, Hand of Ragnaros' => Sulfuras::class,
         'Backstage passes to a TAFKAL80ETC concert' => BackstagePasses::class,
+        'Conjured Mana Cake' => Conjured::class,
     ];
 
     /**

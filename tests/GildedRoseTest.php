@@ -139,6 +139,34 @@ class GildedRoseTest extends TestCase
         $gildedRose->updateQuality();
         $this->assertSame(0, $items[0]->quality);
     }
+
+    public function test_conjured_items_quality_before_sell_end_date(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 10, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame(8, $items[0]->quality);
+    }
+
+    public function test_conjured_items_quality_before_on_sell_end_date(): void
+    {
+        $items = [new Item('Conjured Mana Cake', 0, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame(6, $items[0]->quality);
+    }
+
+    public function test_conjured_items_quality_before_after_sell_end_date(): void
+    {
+        $items = [new Item('Conjured Mana Cake', -5, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertSame(6, $items[0]->quality);
+    }
+
+    public function test_conjured_items_quality_never_less_than_zero(): void
+    {
+        $items = [new Item('Conjured Mana Cake', -5, 1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame(0, $items[0]->quality);
