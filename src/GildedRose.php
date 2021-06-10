@@ -40,8 +40,7 @@ final class GildedRose
         foreach ($items as $key => $item) {
             if (array_key_exists($item->name, self::$itemClasses)) {
                 $class = self::$itemClasses[$item->name];
-            }
-            else {
+            } else {
                 $class = NormalItem::class;
             }
 

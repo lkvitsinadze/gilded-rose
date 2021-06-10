@@ -129,7 +129,7 @@ class GildedRoseTest extends TestCase
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
-        $this->assertSame(13, $items[0]->quality);
+        $this->assertSame(0, $items[0]->quality);
     }
 
     public function test_backstage_passes_quality_after_sell_date(): void
